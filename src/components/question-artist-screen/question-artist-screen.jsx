@@ -39,7 +39,7 @@ const QuestionArtistScreen = (props) => {
         <form className="game__artist">
           {answers.map((answer, index) => {
             return (
-              <div key={answer.artist} className="artist">
+              <div key={`${index}-${answer.artist}`} className="artist">
                 <input className="artist__input visually-hidden" type="radio" name="answer"
                   value={`artist-${index}`} id={`answer-${index}`}
                   onChange={(evt) => {
@@ -54,22 +54,6 @@ const QuestionArtistScreen = (props) => {
             );
           })}
 
-
-          {/* <div className="artist">*/}
-          {/*  <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-2" id="answer-2"/>*/}
-          {/*  <label className="artist__name" htmlFor="answer-2">*/}
-          {/*    <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"/>*/}
-          {/*      Краснознаменная дивизия имени моей бабушки*/}
-          {/*  </label>*/}
-          {/* </div>*/}
-
-          {/* <div className="artist">*/}
-          {/*  <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-3" id="answer-3"/>*/}
-          {/*  <label className="artist__name" htmlFor="answer-3">*/}
-          {/*    <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"/>*/}
-          {/*      Lorde*/}
-          {/*  </label>*/}
-          {/* </div>*/}
         </form>
       </section>
     </section>
