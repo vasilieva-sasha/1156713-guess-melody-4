@@ -7,13 +7,13 @@ class QuestionGenreScreen extends PureComponent {
     super(props);
 
     this.state = {
-      userAnswers: [false, false, false, false],
+      answers: [false, false, false, false],
     };
   }
 
   render() {
     const {onAnswer, question} = this.props;
-    const {userAnswers} = this.state;
+    const {answers: userAnswers} = this.state;
     const {answers, genre} = question;
 
     return (
@@ -26,7 +26,7 @@ class QuestionGenreScreen extends PureComponent {
 
           <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
             <circle className="timer__line" cx="390" cy="390" r="370"
-              style="filter: url(#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"/>
+              style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}/>
           </svg>
 
           <div className="game__mistakes">
@@ -41,7 +41,7 @@ class QuestionGenreScreen extends PureComponent {
           <form className="game__tracks"
             onSubmit={(evt) => {
               evt.preventDefault();
-              onAnswer(question, this.state.userAnswers);
+              onAnswer(question, this.state.answers);
             }}>
             {answers.map((answer, index) => {
               return (<div key={`${index}-${answer.src}`} className="track">
@@ -51,16 +51,15 @@ class QuestionGenreScreen extends PureComponent {
                 </div>
                 <div className="game__answer">
                   <input className="game__input visually-hidden" type="checkbox"
-                    name="answer" value="answer-1" id={`answer-${index}`}/>
-                  <label className="game__check" htmlFor={`answer-${index}`}
+                    name="answer" value="answer-1" id={`answer-${index}`}
                     checked={userAnswers[index]}
                     onChange={(evt) => {
                       const value = evt.target.checked;
-
                       this.setState({
-                        userAnswers: [...userAnswers.slice(0, index), value, ...userAnswers.slice(index + 1)],
+                        answers: [...userAnswers.slice(0, index), value, ...userAnswers.slice(index + 1)],
                       });
-                    }}>Отметить</label>
+                    }}/>
+                  <label className="game__check" htmlFor={`answer-${index}`}>Отметить</label>
                 </div>
               </div>);
             })}
