@@ -24,7 +24,7 @@ describe(`QuestionGenreScreenComponent`, () => {
   it(`Render QuestionGenreScreen`, () => {
     const tree = renderer
       .create((
-        <QuestionGenreScreen onAnswer={() => {}} question={question} />
+        <QuestionGenreScreen onAnswer={() => {}} question={question} renderPlayer={() => {}}/>
       ), {
         createNodeMock: () => {
           return {};
