@@ -24,7 +24,12 @@ describe(`QuestionArtistScreenComponent`, () => {
   it(`Render QuestionArtistScreen`, () => {
     const tree = renderer
       .create(
-          <QuestionArtistScreen onAnswer={() => {}} question={question} />
+          <QuestionArtistScreen onAnswer={() => {}} question={question} renderPlayer={() => {}}/>,
+          {
+            createNodeMock: () => {
+              return {};
+            }
+          }
       )
       .toJSON;
 

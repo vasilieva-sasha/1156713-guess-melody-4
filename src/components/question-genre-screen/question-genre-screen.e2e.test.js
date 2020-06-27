@@ -38,7 +38,7 @@ describe(`QuestionGenreScreenComponent`, () => {
     const {question} = mock;
 
     const questionGenre = shallow(
-        <QuestionGenreScreen onAnswer={onAnswer} question={question} />
+        <QuestionGenreScreen onAnswer={onAnswer} question={question} renderPlayer={() => {}}/>
     );
 
     const form = questionGenre.find(`form`);
@@ -57,7 +57,7 @@ describe(`QuestionGenreScreenComponent`, () => {
     const userAnswer = [false, true, false, false];
 
     const questionGenre = shallow(
-        <QuestionGenreScreen onAnswer={onAnswer} question={question} />
+        <QuestionGenreScreen onAnswer={onAnswer} question={question} renderPlayer={() => {}}/>
     );
 
     const form = questionGenre.find(`form`);

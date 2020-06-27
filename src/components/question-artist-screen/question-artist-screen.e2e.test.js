@@ -38,7 +38,7 @@ describe(`QuestionArtistScreenComponent`, () => {
     };
 
     const questionArtist = shallow(
-        <QuestionArtistScreen onAnswer={onAnswer} question={mock} />
+        <QuestionArtistScreen onAnswer={onAnswer} question={mock} renderPlayer={() => {}}/>
     );
 
     const answerInputs = questionArtist.find(`input`);
